@@ -136,7 +136,8 @@ export default {
 	methods: {
 		init() {
 			registVideoBlot(this.Quill);
-			this.Quill.register('modules/ImageExtend', ImageExtend);
+			// this.Quill.register('modules/ImageExtend', ImageExtend);
+
 			this.initFontSize();
 			this.editor = new this.Quill(this.$refs.editor, { ...defaultOptinos, ...this.options });
 			this.editor.enable(!this.disabled);

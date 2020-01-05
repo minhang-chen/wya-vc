@@ -88,7 +88,7 @@ export default {
 	components: {
 		'vc-table': Table,
 		'vc-page': Page,
-		'vc-paging-loading': PagingLoading
+		// 'vc-paging-loading': PagingLoading
 	},
 	// 不考虑使用
 	// inheritAttrs: false,

@@ -1,6 +1,6 @@
 <template>
 	<div class="vc-quilleditor-view ql-snow">
-		<div class="ql-editor" v-html="content"/>
+		<div class="ql-editor" v-html="content" />
 	</div>
 </template>
 
@@ -24,11 +24,7 @@ export default {
 		content: {
 			immediate: true,
 			handler(v) {
-				if (v) {
-				 this.getImgUrls(v);
-				} else {
-					this.allImgUlrs = [];
-				}
+				v ? this.getImgUrls(v) : (this.allImgUlrs = []);
 			}
 		}
 	},

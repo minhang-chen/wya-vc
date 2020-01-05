@@ -11,6 +11,9 @@
 				ref="editor"
 				v-model="formValidate.value"
 				:disabled="disabled"
+				:options="editorOption"
+				style="width: 100%;height: 500px"
+				@change="handleInput"
 			/>
 		</vc-form-item>
 		<vc-editor-view :content="formValidate.value" />
@@ -18,6 +21,7 @@
 	</vc-form >
 </template>
 <script>
+import { random } from 'lodash';
 import Form from '../../form';
 import Input from '../../input';
 import Button from '../../button';
@@ -81,17 +85,32 @@ export default {
 	
 	data() {
 		return {
-			options: {
+			// options: {
+			// 	modules: {
+			// 		toolbar: {
+			// 			container: [
+			// 				['bold', 'italic', 'underline', 'strike'],
+			// 				[{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+			// 				['link'],
+			// 				[{ 'color': [] }, { 'background': [] }],
+			// 				[{ 'align': [] }]
+			// 			],
+			// 		},
+			// 	}
+			// },
+
+			editorOption: {
 				modules: {
-					toolbar: {
-						container: [
-							['bold', 'italic', 'underline', 'strike'],
-							[{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-							['link'],
-							[{ 'color': [] }, { 'background': [] }],
-							[{ 'align': [] }]
-						],
+					ImageExtend: {
+						uploadProps: {
+							showTips: false,
+							size: 88888,
+							max: 2,
+							multiple: false
+						}
+
 					},
+					toolbar: "#toolbar",
 				}
 			},
 			disabled: false,
@@ -102,7 +121,8 @@ export default {
 				value: [
 					{ required: true, message: '请输入内容' }
 				],
-			}
+			},
+			fileData: ''
 		};
 	},
 	computed: {
@@ -124,6 +144,11 @@ export default {
 				}
 			});
 		},
-	}
+
+		handleInput(v) {
+			// console.log(v.editor.getText(), 'vvv');
+			
+		}
+	},
 };
 </script>
